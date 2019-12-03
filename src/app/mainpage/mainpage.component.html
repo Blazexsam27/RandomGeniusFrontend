@@ -1,0 +1,39 @@
+<div style="padding: 10px; height: 85px; background-image: linear-gradient(to top, black, grey);">
+    <img style="float:right" src="#" alt="image" height="100px" width="100px">
+    <mat-tab-group (selectedTabChange)='changeCategory($event.tab.textLabel)'>
+        <mat-tab label="Random">
+            <h3 class="navbtntxt">Random</h3>
+        </mat-tab>
+        <mat-tab label="Mathematics">
+            <h3 class="navbtntxt">Mathematics</h3>
+        </mat-tab>
+        <mat-tab label="Science">
+            <h3 class="navbtntxt">Science</h3>
+        </mat-tab>
+        <mat-tab label="GK">
+            <h3 class="navbtntxt">General Knowledge</h3>
+        </mat-tab>
+
+    </mat-tab-group>
+
+</div>
+<div style="align-content: center;" class="container">
+    <h3>Questions</h3>
+    <div style="font-weight: bold; font-size: 20px; color:whitesmoke" *ngIf='index != questions.length'>
+        <br>
+        <h3>{{ index + 1}}. {{ questions[index].question }}</h3><br>
+        <mat-radio-group aria-label="Select an option" ngModel #choice='ngModel'>
+            <mat-radio-button value="1">{{questions[index].option1}}</mat-radio-button><br>
+            <mat-radio-button value="2">{{questions[index].option2}}</mat-radio-button><br>
+            <mat-radio-button value="3">{{questions[index].option3}}</mat-radio-button><br>
+            <mat-radio-button value="4">{{questions[index].option4}}</mat-radio-button><br>
+        </mat-radio-group><br>
+        <button mat-raised-button type="submit" (click)='checkAnswer(index, choice.viewModel)'> Submit </button>
+    </div><br>
+
+    <div *ngIf='index == questions.length'>
+        <h3 style="color: white;">COMPLETED!</h3><br>
+        <h3 style="color: white">Your points: {{ points }}</h3>
+        <button mat-raised-button (click)='replay()'>Replay</button>
+    </div>
+</div>

@@ -7,15 +7,19 @@ import { HomeComponent } from './home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { AboutComponent } from './about/about.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
-import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatRadioModule } from '@angular/material/radio';
+
+
+import {
+  MatRadioModule, MatInputModule, MatIconModule, MatCheckboxModule, MatSelectModule,
+  MatFormFieldModule, MatTabsModule
+} from '@angular/material';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
 import { MatIconRegistry } from '@angular/material';
 import { CreateQuestionsComponent } from './create-questions/create-questions.component';
-import { MatIconModule } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
 const appRoutes: Routes = [
@@ -37,6 +41,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    MatInputModule,
     MatIconModule,
     AppRoutingModule,
     MatButtonModule,
@@ -47,6 +52,10 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatExpansionModule,
+    MatCheckboxModule
 
   ],
   providers: [

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  isSelected;
+  @Input() profile: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    this.isSelected = false;
+  }
+
+  changeToDarkMode = () => {
+    if (this.isSelected) {
+      console.log('Dark theme');
+    }
+    console.log("click");
+    console.log(this.isSelected);
   }
 
 }

@@ -1,8 +1,7 @@
-import { MatRadioModule, MatRadioButton } from '@angular/material/radio';
-import { HttpClient } from '@angular/common/http';
+import { HomeComponent } from './../home/home.component';
 import { QuestionRetriverService } from './../question-retriver.service';
 import { QuestionStruct } from './question.interface';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
@@ -32,10 +31,14 @@ import { trigger, style, animate, transition } from '@angular/animations';
 export class MainpageComponent implements OnInit {
 
   questions: QuestionStruct[];
-  @Input() selected: MatRadioButton;
   selectedCategory = 'Random';
   index: number;
   points = 0;
+  Mathematics;
+  Science;
+  GK;
+  Random;
+  category;
 
   constructor(private api: QuestionRetriverService) {
     this.index = 0;
@@ -43,10 +46,22 @@ export class MainpageComponent implements OnInit {
     this.getQuestion();
   }
   ngOnInit() {
+    this.Mathematics = false;
+    this.Science = false;
+    this.GK = false;
+    this.Random = false;
+    this.category = {
+      Mathematics: 'Questions are Based on ancient mathematics.',
+      Random: 'There will be Random Questions',
+      Science: 'Questions are Based on NASA level Science',
+      GK: 'Questions are Based on GK',
+    }
+    document.getElementById('categoryInfoDisplayer').innerHTML = this.category[this.selectedCategory];
   }
 
   changeCategory = (category) => {
     this.selectedCategory = category;
+    document.getElementById('categoryInfoDisplayer').innerHTML = this.category[this.selectedCategory];
     this.getQuestion();
   }
 
@@ -87,7 +102,46 @@ export class MainpageComponent implements OnInit {
   replay = () => {
     this.index = 0;
     this.points = 0;
+    this.Mathematics = false;
+    this.Science = false;
+    this.GK = false;
+    this.Random = false;
     this.getQuestion();
+    this.hidQuestions();
+  }
+
+  showQuestions = () => {
+    document.getElementById('container').style.display = 'block';
+    document.getElementById('startbtn').style.display = 'none';
+    document.getElementById('categoryInfoDisplayer').style.display = 'none';
+    if (this.selectedCategory == 'Mathematics') {
+      this.Science = true;
+      this.GK = true;
+      this.Random = true;
+    }
+    if (this.selectedCategory == 'GK') {
+      this.Mathematics = true;
+      this.Science = true;
+      this.Random = true;
+    }
+
+    if (this.selectedCategory == 'Science') {
+      this.Mathematics = true;
+      this.GK = true;
+      this.Random = true;
+    }
+
+    if (this.selectedCategory == 'Random') {
+      this.Mathematics = true;
+      this.Science = true;
+      this.GK = true;
+    }
+  }
+
+  hidQuestions = () => {
+    document.getElementById('container').style.display = 'none';
+    document.getElementById('categoryInfoDisplayer').style.display = 'block';
+    document.getElementById('startbtn').style.display = 'block';
   }
 
 }

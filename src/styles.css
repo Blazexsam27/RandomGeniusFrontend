@@ -14,6 +14,14 @@ body, html{
     height : 100%;
 }
 
+.bg2{
+    background-image : url('http://www.talencia.cat/mypics/max/2/27344_black-gradient-background-texture.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height : 100%;
+}
+
 .area{
     background: #4e54c8;  
     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  

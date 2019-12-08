@@ -1,18 +1,45 @@
-<div style="padding: 15px; font-weight: bold;">
-    <form>
-        <label for="question">question </label>
-        <input type="text" [ngModel]='question.question'><br><br>
-        <label for="option1">option1 </label>
-        <input type="text" [ngModel]='question.option1'><br><br>
-        <label for="option2">option2 </label>
-        <input type="text" [ngModel]='question.option2'><br><br>
-        <label for="option3">option3 </label>
-        <input type="text" [ngModel]='question.option3'><br><br>
-        <label for="option4">option4 </label>
-        <input type="text" [ngModel]='question.option4'><br><br>
-        <label for="answer">answer </label>
-        <input type="text" [ngModel]='question.answer'><br><br>
-        <label for="category" [ngModel]='question.category'>category </label>
-        <input type="text"><br><br>
+<body class="bg2">
+    <h3 class="msg">Submit your own questions by filling this form.</h3><br>
+    <h3 class="msg">Please read<button mat-button
+            style="color: cyan; font-weight: bold; font-size: 27px;">Conditions</button>first!</h3>
+    <form class="container" #questionForm="ngForm">
+
+        <mat-form-field>
+            <textarea matInput name="question" [(ngModel)]="Question.question" placeholder="Question"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput name="option1" [(ngModel)]="Question.option1" placeholder="Option1"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput name="option2" [(ngModel)]="Question.option2" placeholder="Option2"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput name="option3" [(ngModel)]="Question.option3" placeholder="Option3"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput name="option4" [(ngModel)]="Question.option4" placeholder="Option4"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput name="answer" [(ngModel)]="Question.answer"
+                placeholder="Answer (option number)"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select name="category" [(ngModel)]="Question.category" placeholder="Category">
+                <mat-option value="Mathematics">Mathematics</mat-option>
+                <mat-option value="Science">Science</mat-option>
+                <mat-option value="GK">GK</mat-option>
+            </mat-select>
+        </mat-form-field>
+
     </form>
-</div>
+    <br><br>
+    <button mat-flat-button color='primary' (click)="questionSubmission(); questionForm.reset()"
+        type="submit">Submit</button>
+
+</body>

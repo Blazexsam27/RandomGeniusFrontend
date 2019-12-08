@@ -1,23 +1,27 @@
 <div style="padding: 10px; height: 85px; background-image: linear-gradient(to top, black, grey);">
-    <img style="float:right" src="#" alt="image" height="100px" width="100px">
     <mat-tab-group (selectedTabChange)='changeCategory($event.tab.textLabel)'>
-        <mat-tab label="Random">
+        <mat-tab [(disabled)]='Random' label="Random">
             <h3 class="navbtntxt">Random</h3>
         </mat-tab>
-        <mat-tab label="Mathematics">
+        <mat-tab [(disabled)]='Mathematics' label="Mathematics">
             <h3 class="navbtntxt">Mathematics</h3>
         </mat-tab>
-        <mat-tab label="Science">
+        <mat-tab [disabled]='Science' label="Science">
             <h3 class="navbtntxt">Science</h3>
         </mat-tab>
-        <mat-tab label="GK">
+        <mat-tab [disabled]='GK' label="GK">
             <h3 class="navbtntxt">General Knowledge</h3>
         </mat-tab>
-
     </mat-tab-group>
 
 </div>
-<div style="align-content: center;" class="container">
+
+<div style="float: center; margin-left: 40%;padding-top: 30px">
+    <p id='categoryInfoDisplayer'></p><br>
+    <button id='startbtn' mat-raised-button (click)="showQuestions()">start</button>
+</div>
+
+<div id='container' style="align-content: center;" class="container">
     <h3>Questions</h3>
     <div style="font-weight: bold; font-size: 20px; color:whitesmoke" *ngIf='index != questions.length'>
         <br>

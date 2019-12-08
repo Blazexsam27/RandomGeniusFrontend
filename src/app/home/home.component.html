@@ -23,11 +23,11 @@
 
             <div class="container">
                 <label for="uname"><b>Username</b></label>
-                <input [(ngModel)]='input.username' type="text" placeholder="Enter Username" name="uname" required>
-                <label for='email'><b>Email</b></label>
-                <input [(ngModel)]='input.email' type="text" placeholder="Enter email" name="emailname" required>
+                <input [(ngModel)]='loginInput.username' type="text" placeholder="Enter Username" name="uname" required>
+
                 <label for="psw"><b>Password</b></label>
-                <input [(ngModel)]='input.password' type="password" placeholder="Enter Password" name="psw" required>
+                <input [(ngModel)]='loginInput.password' type="password" placeholder="Enter Password" name="psw"
+                    required>
 
                 <button mat-button mat-raised-button color='primary' type="submit" (click)='login()'>Login</button>
                 <label>
@@ -97,7 +97,7 @@
     </script>
 
     <div class="button-row">
-        <button class="stbutton" mat-button color='primary'>About</button>
+        <a routerLink='about'><button mat-button>About</button></a>
         <button class="stbutton" onclick="document.getElementById('login').style.display='block'" style="width:auto;"
             mat-button color='accent'>Log in</button>
         <button class="stbutton" mat-button onclick="document.getElementById('signup').style.display='block'"
@@ -106,9 +106,22 @@
         <a routerLink='mainpage'><button mat-button>Explore</button></a>
     </div>
 
-    <button style="margin: 6px; float:left" mat-fab color='accent'>
+    <button style="margin: 6px; float:left" mat-fab color='warn' (click)="dropdownMenuToggle()">
         <mat-icon svgIcon='account'></mat-icon>
     </button>
+
+    <div id="dropdownMenu" class="dropdownContainer">
+        <div id="dropdownObjectContainer">
+            <button (click)='revealAbout()' mat-button>Profile</button>
+        </div>
+        <div id="dropdownObjectContainer">
+            <button mat-button>Settings</button>
+        </div>
+        <div id="dropdownObjectContainer">
+            <button mat-button>Logout</button>
+        </div>
+
+    </div>
 
     <div style="align-content: center; padding: 350px 0 0 25px">
         <p>RandomGenius app brings you daily random questions along with solutions of the subjects of your choice.</p>
@@ -117,5 +130,7 @@
         <button class="buttontemp" onclick="document.getElementById('signup').style.display='block'"
             style="width:auto;"><span>Join now</span></button>
     </div>
-
+    <div id="aboutPanel" class='aboutPanel'>
+        <app-about [profile]="profileInfo"></app-about>
+    </div>
 </body>

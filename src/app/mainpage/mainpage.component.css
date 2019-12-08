@@ -1,6 +1,11 @@
 .navbtntxt{
     color:white;
 }
+p{
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 1px 1px blue;
+}
 
 .container{
     background-image: linear-gradient(to top, black, grey);
@@ -11,6 +16,7 @@
     border-radius: 20px;
     box-shadow: 1px 2px 1px 2px #3f51b5;
     width: auto;
+    display: none;
 }
 
 .optcontainer{
@@ -29,3 +35,32 @@
 .optbtn:hover{
     background-color: black;
 }
+
+.dropdownContainer{
+    display: none;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+  }
+
+  .dropdownObjectContainer{
+    display: none;
+    font-weight: bold;
+    padding: 3px;
+    color: white;
+    height: auto;
+    width: auto;
+    box-shadow: 1px 1px 1px 1px orange;
+  }
+  .dropdownObjectContainer:hover{
+    box-shadow: 1px 1px 1px 1px yellow;
+  }
+
+  button{
+    color: white;
+    font-weight: bold;
+  }
+
+  button:hover{
+      box-shadow: 2px 2px 2px 2px blue;
+  }

@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 5px; 
+    font-weight: bold; 
+    text-align:center;
+    color: white;
+}
+.msg{
+    color: white;
+    font-weight: bold;
+    font-size: 27px;
+    
+}
+
+.container > *{
+    width: 100%;
+}
+

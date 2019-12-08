@@ -1,3 +1,4 @@
+import { QuestionRetriverService } from './../question-retriver.service';
 import { QuestionStruct } from './../mainpage/question.interface';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,13 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateQuestionsComponent implements OnInit {
 
-  question: QuestionStruct;
+  Question: QuestionStruct;
 
-  constructor() {
-    this.question = { id: -1, question: '', option1: '', option2: '', option3: '', option4: '', answer: '', category: '' };
+  constructor(private http: QuestionRetriverService) {
+    this.Question = { id: -1, question: '', option1: '', option2: '', option3: '', option4: '', answer: '', category: '' };
   }
 
   ngOnInit() {
+  }
+
+  questionSubmission() {
+    this.http.SubmitQuestion(this.Question).subscribe(
+      response => {
+        alert("SUCCESSFULLY SUBMITTED!");
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
 }

@@ -1,1 +1,25 @@
-<p>about works!</p>
+<div class="settingsDisplay">
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Theme</mat-panel-title>
+                <mat-panel-description>Choose your favourite theme</mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-checkbox (click)="changeToDarkMode()" [(checked)]="isSelected">Dark Theme</mat-checkbox>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+</div>
+<div>
+    <h2>{{ profile.username }}</h2>
+    <h2>{{ profile.email }}</h2>
+</div>
+
+<div class="buttonContainer">
+    <button mat-button>Profile</button><br>
+    <button mat-button>Settings</button><br>
+    <button mat-button>Visual Settings</button><br>
+    <button mat-button>About</button><br>
+    <button mat-button>Donate</button>
+</div>
